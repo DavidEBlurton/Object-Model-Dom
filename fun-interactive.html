@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styling Fun!</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #edf1f8;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #889dab;
+            color: white;
+            line-height: 200px;
+            margin: 20px auto;
+            border-radius: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        #button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #button:hover {
+            background-color: #c0392b;
+        }
+        .fun-text {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning the functions to interact!</h1>
+    <div id="box" onclick="changeColor()">Click me!</div>
+    <button id="button" onclick="showMessage()">Click me to reveal a hidden message!</button>
+    <div id="fun-message" class="fun-text hidden"> This is such a cool feature</div>
+
+    <script>
+        
+        function changeColor() {
+            const box = document.getElementById("box");
+            const colors = ["#3498db", "#e74c3c", "#f1c40f", "#2ecc71", "#9b59b6"];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            box.style.backgroundColor = randomColor;
+            box.style.transform = "scale(1.1)";
+            setTimeout(() => {
+                box.style.transform = "scale(1)";
+            }, 300);
+        }
+
+        function showMessage() {
+            const message = document.getElementById("fun-message");
+            message.classList.toggle("hidden");
+        }
+    </script>
+</body>
+</html>
